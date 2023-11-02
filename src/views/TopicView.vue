@@ -18,7 +18,7 @@ export default {
       author: {
         name: "ПушкиДобра",
         joined: "24.05.2023, 14:07",
-        avatar: "/avatars/Unicorn_holding_guns_in_front__happiness__rainbow__logo__illustration__S2514780339_St25_G7.5.jpeg"
+        avatar: "/avatars/unicorn_v01.png"
       },
       answers: [
         // {
