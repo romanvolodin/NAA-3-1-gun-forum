@@ -36,6 +36,8 @@ export default {
         //   bid: 0.068589,
         // },
       ],
+      timer: null,
+      startTime: new Date(0, 0, 0, 12, 0, 1, 0),
     }
   },
   methods: {
@@ -48,6 +50,24 @@ export default {
         elem.msRequestFullscreen();
       }
     },
+    startTimer() {
+      setInterval(() => {
+        let hours = this.startTime.getHours();
+        let minutes = this.startTime.getMinutes();
+        let seconds = this.startTime.getSeconds();
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        this.timer = hours + ":" + minutes + ":" + seconds;
+        this.startTime.setSeconds(this.startTime.getSeconds() - 1);
+      }, 1000)
+    },
+  },
+  mounted() {
+    this.startTimer()
   },
 }
 </script>
@@ -132,10 +152,13 @@ export default {
       <div class="col-10 p-3">
         <h4>{{ topic.title }}</h4>
         <p>Post by {{ author.name }} » {{ topic.created_at }}</p>
-        <img style="width: 90%;" src="/113_AK_v01.jpg" alt="">
-        <h4>Продам автоматы АК! Вещь на века!<br>113 штук в наличии.</h4>
-        <p>Оплата только криптой, другие варианты не предлагать</p>
-        <p>Контакты для связи в личку</p>
+        <img style="width: 90%;" src="/113_AK_v02.jpg" alt="">
+        <h1 style="color: red">Торопись!! Аукцион закончится через {{ timer }}!</h1>
+        <h1>Продам автоматы АК! Вещь на века!<br>113 штук в наличии.</h1>
+        <h5>
+          Оплата только криптой, другие варианты не предлагать<br>
+          Контакты для связи в личку
+        </h5>
         <p class="start-price">Стартовая цена:<br><span class="start-price-counter">0.067757 ETH</span></p>
       </div>
       <div class="col-2 border-dark-subtle rounded">
