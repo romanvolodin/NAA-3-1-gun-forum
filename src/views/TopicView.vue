@@ -18,7 +18,7 @@ export default {
       author: {
         name: "ПушкиДобра",
         joined: "24.05.2023, 14:07",
-        avatar: "/avatars/unicorn_v01.png"
+        avatar: "/avatars/unicorn_v02.png"
       },
       answers: [
         // {
